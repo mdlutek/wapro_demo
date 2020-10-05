@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesktopApp.UserControls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,34 @@ namespace DesktopApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal static DataAccess.DB DTier;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            DTier = new DataAccess.DB();
+        }
+
+        private void Command_CanExecute_MagAnalizaStanow(object sender, CanExecuteRoutedEventArgs e)
+        {
+            //if (MainContent.Children.Count > 0 && MainContent.Children[0] is UCMagAnalizaStanow)
+            //{
+            //    e.CanExecute = false;
+            //    return;
+            //}
+
+            e.CanExecute = true;
+        }
+
+        private void Command_Execute_MagAnalizaStanow(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (MainContent.Children.Count > 0)
+            {
+                MainContent.Children.Clear();
+            }
+
+            MainContent.Children.Add(new UCMagAnalizaStanow());
         }
     }
 }

@@ -4,9 +4,30 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopApp"
+        xmlns:Helpers="clr-namespace:DesktopApp.Helpers"
+        xmlns:UserControls="clr-namespace:DesktopApp.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="Wapro Demo" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="Helpers:Commands.MagAnalizaStanow" CanExecute="Command_CanExecute_MagAnalizaStanow" Executed="Command_Execute_MagAnalizaStanow"/>
+    </Window.CommandBindings>
+
+    <Grid VirtualizingPanel.IsVirtualizing="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
         
+        <Menu Grid.Row="0">
+            <MenuItem Header="Magazyn">
+                <MenuItem Header="Analiza stanów" Command="Helpers:Commands.MagAnalizaStanow"/>
+            </MenuItem>
+            <MenuItem Header="Baza danych">
+                <MenuItem Header="Widoki"/>
+            </MenuItem>
+        </Menu>
+
+        <DockPanel Grid.Row="1" Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
     </Grid>
 </Window>

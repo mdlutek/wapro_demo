@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WAPRO_DEMO_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
+          <Key>
+            <PropertyRef Name="id_artykulu" />
+            <PropertyRef Name="nazwa" />
+            <PropertyRef Name="jednostka" />
+            <PropertyRef Name="indeks_katalogowy" />
+            <PropertyRef Name="indeks_handlowy" />
+          </Key>
+          <Property Name="id_artykulu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="jednostka" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="stan" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="ilosc_dostepna" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="stan_min" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="stan_max" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="dostawcy_zamowili" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="dostawcy_do_realizacji" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_zamowili" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_do_realizacji" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_zarezerwowano" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_do_rezerwacji" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="id_magazynu" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="id_kategorii" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="id_jednostki" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="stan_prognozowany" Type="decimal" Precision="38" Scale="6" />
+          <Property Name="indeks_katalogowy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="indeks_handlowy" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="RODZAJ" Type="varchar" MaxLength="10" />
+          <Property Name="PKWiU" Type="varchar" MaxLength="14" />
+          <Property Name="SWWKU" Type="varchar" MaxLength="10" />
+          <Property Name="CENA_ZAKUPU_BRUTTO" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="CENA_ZAKUPU_NETTO" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="LOKALIZACJA" Type="varchar" MaxLength="30" />
+          <Property Name="NAZWA_CERTYFIKATU" Type="varchar" MaxLength="50" />
+          <Property Name="DATA_CERTYFIKATU" Type="int" />
+          <Property Name="PLU" Type="int" />
+          <Property Name="ID_CENY_DOM" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_JEDNOSTKI_ZAK" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="ID_JEDNOSTKI_SPRZ" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="VAT_ZAKUPU" Type="char" MaxLength="3" />
+          <Property Name="VAT_SPRZEDAZY" Type="char" MaxLength="3" />
+          <Property Name="NAZWA2" Type="varchar" MaxLength="40" />
+          <Property Name="OD_DOSTAWCOW" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="DO_ODBIORCOW" Type="decimal" Precision="16" Scale="6" />
+          <Property Name="CERTYFIKAT" Type="tinyint" />
+          <Property Name="kod_kreskowy" Type="varchar" MaxLength="20" />
+          <Property Name="nazwa_oryg" Type="varchar" MaxLength="100" />
+          <Property Name="zablokowany" Type="tinyint" />
+          <Property Name="id_kategorii_tree" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="marzowy" Type="tinyint" />
+        </EntityType>
+        <EntityContainer Name="WAPRO_DEMO_ModelStoreContainer">
+          <EntitySet Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" EntityType="Self.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[id_artykulu] AS [id_artykulu], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[nazwa] AS [nazwa], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[jednostka] AS [jednostka], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[stan] AS [stan], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[ilosc_dostepna] AS [ilosc_dostepna], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[stan_min] AS [stan_min], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[stan_max] AS [stan_max], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[dostawcy_zamowili] AS [dostawcy_zamowili], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[dostawcy_do_realizacji] AS [dostawcy_do_realizacji], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[odbiorcy_zamowili] AS [odbiorcy_zamowili], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[odbiorcy_do_realizacji] AS [odbiorcy_do_realizacji], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[odbiorcy_zarezerwowano] AS [odbiorcy_zarezerwowano], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[odbiorcy_do_rezerwacji] AS [odbiorcy_do_rezerwacji], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[id_magazynu] AS [id_magazynu], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[id_kategorii] AS [id_kategorii], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[id_jednostki] AS [id_jednostki], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[stan_prognozowany] AS [stan_prognozowany], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[indeks_katalogowy] AS [indeks_katalogowy], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[indeks_handlowy] AS [indeks_handlowy], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[RODZAJ] AS [RODZAJ], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[PKWiU] AS [PKWiU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[SWWKU] AS [SWWKU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[CENA_ZAKUPU_BRUTTO] AS [CENA_ZAKUPU_BRUTTO], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[CENA_ZAKUPU_NETTO] AS [CENA_ZAKUPU_NETTO], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[LOKALIZACJA] AS [LOKALIZACJA], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[NAZWA_CERTYFIKATU] AS [NAZWA_CERTYFIKATU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[DATA_CERTYFIKATU] AS [DATA_CERTYFIKATU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[PLU] AS [PLU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[ID_CENY_DOM] AS [ID_CENY_DOM], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[ID_JEDNOSTKI_ZAK] AS [ID_JEDNOSTKI_ZAK], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[ID_JEDNOSTKI_SPRZ] AS [ID_JEDNOSTKI_SPRZ], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[VAT_ZAKUPU] AS [VAT_ZAKUPU], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[VAT_SPRZEDAZY] AS [VAT_SPRZEDAZY], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[NAZWA2] AS [NAZWA2], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[OD_DOSTAWCOW] AS [OD_DOSTAWCOW], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[DO_ODBIORCOW] AS [DO_ODBIORCOW], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[CERTYFIKAT] AS [CERTYFIKAT], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[kod_kreskowy] AS [kod_kreskowy], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[nazwa_oryg] AS [nazwa_oryg], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[zablokowany] AS [zablokowany], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[id_kategorii_tree] AS [id_kategorii_tree], 
+    [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[marzowy] AS [marzowy]
+    FROM [dbo].[ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V] AS [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WAPRO_DEMO_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
+          <Key>
+            <PropertyRef Name="id_artykulu" />
+            <PropertyRef Name="nazwa" />
+            <PropertyRef Name="jednostka" />
+            <PropertyRef Name="indeks_katalogowy" />
+            <PropertyRef Name="indeks_handlowy" />
+          </Key>
+          <Property Name="id_artykulu" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="nazwa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="jednostka" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="stan" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="ilosc_dostepna" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="stan_min" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="stan_max" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="dostawcy_zamowili" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="dostawcy_do_realizacji" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_zamowili" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_do_realizacji" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_zarezerwowano" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="odbiorcy_do_rezerwacji" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="id_magazynu" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="id_kategorii" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="id_jednostki" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="stan_prognozowany" Type="Decimal" Precision="38" Scale="6" />
+          <Property Name="indeks_katalogowy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="indeks_handlowy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RODZAJ" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PKWiU" Type="String" MaxLength="14" FixedLength="false" Unicode="false" />
+          <Property Name="SWWKU" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CENA_ZAKUPU_BRUTTO" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="CENA_ZAKUPU_NETTO" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="LOKALIZACJA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NAZWA_CERTYFIKATU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DATA_CERTYFIKATU" Type="Int32" />
+          <Property Name="PLU" Type="Int32" />
+          <Property Name="ID_CENY_DOM" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_JEDNOSTKI_ZAK" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ID_JEDNOSTKI_SPRZ" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="VAT_ZAKUPU" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="VAT_SPRZEDAZY" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="NAZWA2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="OD_DOSTAWCOW" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="DO_ODBIORCOW" Type="Decimal" Precision="16" Scale="6" />
+          <Property Name="CERTYFIKAT" Type="Byte" />
+          <Property Name="kod_kreskowy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nazwa_oryg" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="zablokowany" Type="Byte" />
+          <Property Name="id_kategorii_tree" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="marzowy" Type="Byte" />
+        </EntityType>
+        <EntityContainer Name="WAPRO_DEMO_Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" EntityType="Self.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WAPRO_DEMO_ModelStoreContainer" CdmEntityContainer="WAPRO_DEMO_Entities">
+          <EntitySetMapping Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
+            <EntityTypeMapping TypeName="WAPRO_DEMO_Model.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
+              <MappingFragment StoreEntitySet="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
+                <ScalarProperty Name="id_artykulu" ColumnName="id_artykulu" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+                <ScalarProperty Name="jednostka" ColumnName="jednostka" />
+                <ScalarProperty Name="stan" ColumnName="stan" />
+                <ScalarProperty Name="ilosc_dostepna" ColumnName="ilosc_dostepna" />
+                <ScalarProperty Name="stan_min" ColumnName="stan_min" />
+                <ScalarProperty Name="stan_max" ColumnName="stan_max" />
+                <ScalarProperty Name="dostawcy_zamowili" ColumnName="dostawcy_zamowili" />
+                <ScalarProperty Name="dostawcy_do_realizacji" ColumnName="dostawcy_do_realizacji" />
+                <ScalarProperty Name="odbiorcy_zamowili" ColumnName="odbiorcy_zamowili" />
+                <ScalarProperty Name="odbiorcy_do_realizacji" ColumnName="odbiorcy_do_realizacji" />
+                <ScalarProperty Name="odbiorcy_zarezerwowano" ColumnName="odbiorcy_zarezerwowano" />
+                <ScalarProperty Name="odbiorcy_do_rezerwacji" ColumnName="odbiorcy_do_rezerwacji" />
+                <ScalarProperty Name="id_magazynu" ColumnName="id_magazynu" />
+                <ScalarProperty Name="id_kategorii" ColumnName="id_kategorii" />
+                <ScalarProperty Name="id_jednostki" ColumnName="id_jednostki" />
+                <ScalarProperty Name="stan_prognozowany" ColumnName="stan_prognozowany" />
+                <ScalarProperty Name="indeks_katalogowy" ColumnName="indeks_katalogowy" />
+                <ScalarProperty Name="indeks_handlowy" ColumnName="indeks_handlowy" />
+                <ScalarProperty Name="RODZAJ" ColumnName="RODZAJ" />
+                <ScalarProperty Name="PKWiU" ColumnName="PKWiU" />
+                <ScalarProperty Name="SWWKU" ColumnName="SWWKU" />
+                <ScalarProperty Name="CENA_ZAKUPU_BRUTTO" ColumnName="CENA_ZAKUPU_BRUTTO" />
+                <ScalarProperty Name="CENA_ZAKUPU_NETTO" ColumnName="CENA_ZAKUPU_NETTO" />
+                <ScalarProperty Name="LOKALIZACJA" ColumnName="LOKALIZACJA" />
+                <ScalarProperty Name="NAZWA_CERTYFIKATU" ColumnName="NAZWA_CERTYFIKATU" />
+                <ScalarProperty Name="DATA_CERTYFIKATU" ColumnName="DATA_CERTYFIKATU" />
+                <ScalarProperty Name="PLU" ColumnName="PLU" />
+                <ScalarProperty Name="ID_CENY_DOM" ColumnName="ID_CENY_DOM" />
+                <ScalarProperty Name="ID_JEDNOSTKI_ZAK" ColumnName="ID_JEDNOSTKI_ZAK" />
+                <ScalarProperty Name="ID_JEDNOSTKI_SPRZ" ColumnName="ID_JEDNOSTKI_SPRZ" />
+                <ScalarProperty Name="VAT_ZAKUPU" ColumnName="VAT_ZAKUPU" />
+                <ScalarProperty Name="VAT_SPRZEDAZY" ColumnName="VAT_SPRZEDAZY" />
+                <ScalarProperty Name="NAZWA2" ColumnName="NAZWA2" />
+                <ScalarProperty Name="OD_DOSTAWCOW" ColumnName="OD_DOSTAWCOW" />
+                <ScalarProperty Name="DO_ODBIORCOW" ColumnName="DO_ODBIORCOW" />
+                <ScalarProperty Name="CERTYFIKAT" ColumnName="CERTYFIKAT" />
+                <ScalarProperty Name="kod_kreskowy" ColumnName="kod_kreskowy" />
+                <ScalarProperty Name="nazwa_oryg" ColumnName="nazwa_oryg" />
+                <ScalarProperty Name="zablokowany" ColumnName="zablokowany" />
+                <ScalarProperty Name="id_kategorii_tree" ColumnName="id_kategorii_tree" />
+                <ScalarProperty Name="marzowy" ColumnName="marzowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
