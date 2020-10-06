@@ -26,5 +26,6 @@ namespace DataAccess
         }
     
         public virtual DbSet<ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V> ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V { get; set; }
+        public virtual DbSet<WIDOK_ZAMOWIENIE> WIDOK_ZAMOWIENIE { get; set; }
     }
 }

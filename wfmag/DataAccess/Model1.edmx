@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="WAPRO_DEMO_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="WAPRO_DEMO_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
 warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V">
@@ -58,6 +58,57 @@ warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' 
           <Property Name="id_kategorii_tree" Type="numeric" Precision="18" Scale="0" />
           <Property Name="marzowy" Type="tinyint" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WAPRO_DEMO.dbo.WIDOK_ZAMOWIENIE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="WIDOK_ZAMOWIENIE">
+          <Key>
+            <PropertyRef Name="IdZamowienia" />
+            <PropertyRef Name="IdMagazynu" />
+            <PropertyRef Name="IdFirmy" />
+          </Key>
+          <Property Name="IdZamowienia" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Numer" Type="varchar" MaxLength="30" />
+          <Property Name="DataWystawienia" Type="datetime" />
+          <Property Name="DataRealizacji" Type="datetime" />
+          <Property Name="NumerZamowieniaKlienta" Type="varchar" MaxLength="30" />
+          <Property Name="Priorytet" Type="varchar" MaxLength="6" />
+          <Property Name="SumaZaliczek" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscNetto" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscBrutto" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscVat" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="WartoscNettoWal" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscBruttoWal" Type="decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscVatWal" Type="decimal" Precision="15" Scale="4" />
+          <Property Name="PrzelicznikWal" Type="decimal" Precision="14" Scale="8" />
+          <Property Name="DataKursuWaluty" Type="datetime" />
+          <Property Name="SymbolWaluty" Type="varchar" MaxLength="3" />
+          <Property Name="ZamowienieWalutowe" Type="tinyint" />
+          <Property Name="TypZamowienia" Type="varchar" MaxLength="11" />
+          <Property Name="TrybRezerwacji" Type="varchar" MaxLength="12" />
+          <Property Name="Uwagi" Type="varchar" MaxLength="1000" />
+          <Property Name="IdKontrahenta" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="IdMagazynu" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="IdFirmy" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StanZamowienia" Type="varchar" MaxLength="1" />
+          <Property Name="StanRealizacji" Type="varchar" MaxLength="1" />
+          <Property Name="IdPracownika" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="DokZablokowany" Type="tinyint" />
+          <Property Name="Pole1" Type="varchar" MaxLength="100" />
+          <Property Name="Pole2" Type="varchar" MaxLength="100" />
+          <Property Name="Pole3" Type="varchar" MaxLength="100" />
+          <Property Name="Pole4" Type="varchar" MaxLength="100" />
+          <Property Name="Pole5" Type="varchar" MaxLength="100" />
+          <Property Name="Pole6" Type="varchar" MaxLength="100" />
+          <Property Name="Pole7" Type="varchar" MaxLength="100" />
+          <Property Name="Pole8" Type="varchar" MaxLength="100" />
+          <Property Name="Pole9" Type="varchar" MaxLength="100" />
+          <Property Name="Pole10" Type="varchar" MaxLength="100" />
+          <Property Name="TrybRejestracji" Type="tinyint" />
+          <Property Name="RabatNarzut" Type="decimal" Precision="6" Scale="2" />
+          <Property Name="FORMA_PLATNOSCI" Type="varchar" MaxLength="50" />
+          <Property Name="DNI_PLATNOSCI" Type="int" />
+          <Property Name="FAKTURA_DO_ZAMOWIENIA" Type="tinyint" />
+        </EntityType>
         <EntityContainer Name="WAPRO_DEMO_ModelStoreContainer">
           <EntitySet Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" EntityType="Self.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -105,9 +156,54 @@ warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' 
     [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V].[marzowy] AS [marzowy]
     FROM [dbo].[ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V] AS [ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="WIDOK_ZAMOWIENIE" EntityType="Self.WIDOK_ZAMOWIENIE" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [WIDOK_ZAMOWIENIE].[IdZamowienia] AS [IdZamowienia], 
+    [WIDOK_ZAMOWIENIE].[Numer] AS [Numer], 
+    [WIDOK_ZAMOWIENIE].[DataWystawienia] AS [DataWystawienia], 
+    [WIDOK_ZAMOWIENIE].[DataRealizacji] AS [DataRealizacji], 
+    [WIDOK_ZAMOWIENIE].[NumerZamowieniaKlienta] AS [NumerZamowieniaKlienta], 
+    [WIDOK_ZAMOWIENIE].[Priorytet] AS [Priorytet], 
+    [WIDOK_ZAMOWIENIE].[SumaZaliczek] AS [SumaZaliczek], 
+    [WIDOK_ZAMOWIENIE].[WartoscNetto] AS [WartoscNetto], 
+    [WIDOK_ZAMOWIENIE].[WartoscBrutto] AS [WartoscBrutto], 
+    [WIDOK_ZAMOWIENIE].[WartoscVat] AS [WartoscVat], 
+    [WIDOK_ZAMOWIENIE].[WartoscNettoWal] AS [WartoscNettoWal], 
+    [WIDOK_ZAMOWIENIE].[WartoscBruttoWal] AS [WartoscBruttoWal], 
+    [WIDOK_ZAMOWIENIE].[WartoscVatWal] AS [WartoscVatWal], 
+    [WIDOK_ZAMOWIENIE].[PrzelicznikWal] AS [PrzelicznikWal], 
+    [WIDOK_ZAMOWIENIE].[DataKursuWaluty] AS [DataKursuWaluty], 
+    [WIDOK_ZAMOWIENIE].[SymbolWaluty] AS [SymbolWaluty], 
+    [WIDOK_ZAMOWIENIE].[ZamowienieWalutowe] AS [ZamowienieWalutowe], 
+    [WIDOK_ZAMOWIENIE].[TypZamowienia] AS [TypZamowienia], 
+    [WIDOK_ZAMOWIENIE].[TrybRezerwacji] AS [TrybRezerwacji], 
+    [WIDOK_ZAMOWIENIE].[Uwagi] AS [Uwagi], 
+    [WIDOK_ZAMOWIENIE].[IdKontrahenta] AS [IdKontrahenta], 
+    [WIDOK_ZAMOWIENIE].[IdMagazynu] AS [IdMagazynu], 
+    [WIDOK_ZAMOWIENIE].[IdFirmy] AS [IdFirmy], 
+    [WIDOK_ZAMOWIENIE].[StanZamowienia] AS [StanZamowienia], 
+    [WIDOK_ZAMOWIENIE].[StanRealizacji] AS [StanRealizacji], 
+    [WIDOK_ZAMOWIENIE].[IdPracownika] AS [IdPracownika], 
+    [WIDOK_ZAMOWIENIE].[DokZablokowany] AS [DokZablokowany], 
+    [WIDOK_ZAMOWIENIE].[Pole1] AS [Pole1], 
+    [WIDOK_ZAMOWIENIE].[Pole2] AS [Pole2], 
+    [WIDOK_ZAMOWIENIE].[Pole3] AS [Pole3], 
+    [WIDOK_ZAMOWIENIE].[Pole4] AS [Pole4], 
+    [WIDOK_ZAMOWIENIE].[Pole5] AS [Pole5], 
+    [WIDOK_ZAMOWIENIE].[Pole6] AS [Pole6], 
+    [WIDOK_ZAMOWIENIE].[Pole7] AS [Pole7], 
+    [WIDOK_ZAMOWIENIE].[Pole8] AS [Pole8], 
+    [WIDOK_ZAMOWIENIE].[Pole9] AS [Pole9], 
+    [WIDOK_ZAMOWIENIE].[Pole10] AS [Pole10], 
+    [WIDOK_ZAMOWIENIE].[TrybRejestracji] AS [TrybRejestracji], 
+    [WIDOK_ZAMOWIENIE].[RabatNarzut] AS [RabatNarzut], 
+    [WIDOK_ZAMOWIENIE].[FORMA_PLATNOSCI] AS [FORMA_PLATNOSCI], 
+    [WIDOK_ZAMOWIENIE].[DNI_PLATNOSCI] AS [DNI_PLATNOSCI], 
+    [WIDOK_ZAMOWIENIE].[FAKTURA_DO_ZAMOWIENIA] AS [FAKTURA_DO_ZAMOWIENIA]
+    FROM [dbo].[WIDOK_ZAMOWIENIE] AS [WIDOK_ZAMOWIENIE]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="WAPRO_DEMO_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -164,7 +260,57 @@ warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' 
         </EntityType>
         <EntityContainer Name="WAPRO_DEMO_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" EntityType="Self.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V" />
+          <EntitySet Name="WIDOK_ZAMOWIENIE" EntityType="WAPRO_DEMO_Model.WIDOK_ZAMOWIENIE" />
         </EntityContainer>
+        <EntityType Name="WIDOK_ZAMOWIENIE">
+          <Key>
+            <PropertyRef Name="IdZamowienia" />
+            <PropertyRef Name="IdMagazynu" />
+            <PropertyRef Name="IdFirmy" />
+          </Key>
+          <Property Name="IdZamowienia" Type="Decimal" Nullable="false" Precision="18" Scale="0" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Numer" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DataWystawienia" Type="DateTime" Precision="3" />
+          <Property Name="DataRealizacji" Type="DateTime" Precision="3" />
+          <Property Name="NumerZamowieniaKlienta" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Priorytet" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="SumaZaliczek" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscNetto" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscBrutto" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscVat" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="WartoscNettoWal" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscBruttoWal" Type="Decimal" Precision="14" Scale="4" />
+          <Property Name="WartoscVatWal" Type="Decimal" Precision="15" Scale="4" />
+          <Property Name="PrzelicznikWal" Type="Decimal" Precision="14" Scale="8" />
+          <Property Name="DataKursuWaluty" Type="DateTime" Precision="3" />
+          <Property Name="SymbolWaluty" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="ZamowienieWalutowe" Type="Byte" />
+          <Property Name="TypZamowienia" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="TrybRezerwacji" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Uwagi" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IdKontrahenta" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="IdMagazynu" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="IdFirmy" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="StanZamowienia" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="StanRealizacji" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IdPracownika" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DokZablokowany" Type="Byte" />
+          <Property Name="Pole1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole8" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole9" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Pole10" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TrybRejestracji" Type="Byte" />
+          <Property Name="RabatNarzut" Type="Decimal" Precision="6" Scale="2" />
+          <Property Name="FORMA_PLATNOSCI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DNI_PLATNOSCI" Type="Int32" />
+          <Property Name="FAKTURA_DO_ZAMOWIENIA" Type="Byte" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -216,6 +362,54 @@ warning 6002: The table/view 'WAPRO_DEMO.dbo.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V' 
                 <ScalarProperty Name="zablokowany" ColumnName="zablokowany" />
                 <ScalarProperty Name="id_kategorii_tree" ColumnName="id_kategorii_tree" />
                 <ScalarProperty Name="marzowy" ColumnName="marzowy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WIDOK_ZAMOWIENIE">
+            <EntityTypeMapping TypeName="WAPRO_DEMO_Model.WIDOK_ZAMOWIENIE">
+              <MappingFragment StoreEntitySet="WIDOK_ZAMOWIENIE">
+                <ScalarProperty Name="FAKTURA_DO_ZAMOWIENIA" ColumnName="FAKTURA_DO_ZAMOWIENIA" />
+                <ScalarProperty Name="DNI_PLATNOSCI" ColumnName="DNI_PLATNOSCI" />
+                <ScalarProperty Name="FORMA_PLATNOSCI" ColumnName="FORMA_PLATNOSCI" />
+                <ScalarProperty Name="RabatNarzut" ColumnName="RabatNarzut" />
+                <ScalarProperty Name="TrybRejestracji" ColumnName="TrybRejestracji" />
+                <ScalarProperty Name="Pole10" ColumnName="Pole10" />
+                <ScalarProperty Name="Pole9" ColumnName="Pole9" />
+                <ScalarProperty Name="Pole8" ColumnName="Pole8" />
+                <ScalarProperty Name="Pole7" ColumnName="Pole7" />
+                <ScalarProperty Name="Pole6" ColumnName="Pole6" />
+                <ScalarProperty Name="Pole5" ColumnName="Pole5" />
+                <ScalarProperty Name="Pole4" ColumnName="Pole4" />
+                <ScalarProperty Name="Pole3" ColumnName="Pole3" />
+                <ScalarProperty Name="Pole2" ColumnName="Pole2" />
+                <ScalarProperty Name="Pole1" ColumnName="Pole1" />
+                <ScalarProperty Name="DokZablokowany" ColumnName="DokZablokowany" />
+                <ScalarProperty Name="IdPracownika" ColumnName="IdPracownika" />
+                <ScalarProperty Name="StanRealizacji" ColumnName="StanRealizacji" />
+                <ScalarProperty Name="StanZamowienia" ColumnName="StanZamowienia" />
+                <ScalarProperty Name="IdFirmy" ColumnName="IdFirmy" />
+                <ScalarProperty Name="IdMagazynu" ColumnName="IdMagazynu" />
+                <ScalarProperty Name="IdKontrahenta" ColumnName="IdKontrahenta" />
+                <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+                <ScalarProperty Name="TrybRezerwacji" ColumnName="TrybRezerwacji" />
+                <ScalarProperty Name="TypZamowienia" ColumnName="TypZamowienia" />
+                <ScalarProperty Name="ZamowienieWalutowe" ColumnName="ZamowienieWalutowe" />
+                <ScalarProperty Name="SymbolWaluty" ColumnName="SymbolWaluty" />
+                <ScalarProperty Name="DataKursuWaluty" ColumnName="DataKursuWaluty" />
+                <ScalarProperty Name="PrzelicznikWal" ColumnName="PrzelicznikWal" />
+                <ScalarProperty Name="WartoscVatWal" ColumnName="WartoscVatWal" />
+                <ScalarProperty Name="WartoscBruttoWal" ColumnName="WartoscBruttoWal" />
+                <ScalarProperty Name="WartoscNettoWal" ColumnName="WartoscNettoWal" />
+                <ScalarProperty Name="WartoscVat" ColumnName="WartoscVat" />
+                <ScalarProperty Name="WartoscBrutto" ColumnName="WartoscBrutto" />
+                <ScalarProperty Name="WartoscNetto" ColumnName="WartoscNetto" />
+                <ScalarProperty Name="SumaZaliczek" ColumnName="SumaZaliczek" />
+                <ScalarProperty Name="Priorytet" ColumnName="Priorytet" />
+                <ScalarProperty Name="NumerZamowieniaKlienta" ColumnName="NumerZamowieniaKlienta" />
+                <ScalarProperty Name="DataRealizacji" ColumnName="DataRealizacji" />
+                <ScalarProperty Name="DataWystawienia" ColumnName="DataWystawienia" />
+                <ScalarProperty Name="Numer" ColumnName="Numer" />
+                <ScalarProperty Name="IdZamowienia" ColumnName="IdZamowienia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

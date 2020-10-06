@@ -9,6 +9,17 @@ namespace DesktopApp.Helpers
 {
     public class Commands
     {
+        public static readonly RoutedUICommand Home = new RoutedUICommand
+            (
+                "Home",
+                "Home",
+                typeof(Commands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.D1, ModifierKeys.Control)
+                }
+            );
+
         public static readonly RoutedUICommand MagAnalizaStanow = new RoutedUICommand
             (
                 "MagAnalizaStanow",
@@ -16,7 +27,18 @@ namespace DesktopApp.Helpers
                 typeof(Commands),
                 new InputGestureCollection()
                 {
-                    new KeyGesture(Key.D1, ModifierKeys.Control)
+                    new KeyGesture(Key.D2, ModifierKeys.Control)
+                }
+            );
+
+        public static readonly RoutedUICommand Orders = new RoutedUICommand
+            (
+                "Orders",
+                "Orders",
+                typeof(Commands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.D3, ModifierKeys.Control)
                 }
             );
 
@@ -25,7 +47,11 @@ namespace DesktopApp.Helpers
             (
                 "SendEmail",
                 "SendEmail",
-                typeof(Commands)
+                typeof(Commands),
+                new InputGestureCollection()
+                {
+                    new KeyGesture(Key.E, ModifierKeys.Control)
+                }
             );
     }
 }

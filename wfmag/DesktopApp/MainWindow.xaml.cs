@@ -28,37 +28,47 @@ namespace DesktopApp
             InitializeComponent();
 
             DTier = new DataAccess.DB();
+
+            SetHomeUC();
         }
 
-        private void Command_CanExecute_MagAnalizaStanow(object sender, CanExecuteRoutedEventArgs e)
+        private void SetHomeUC()
         {
-            //if (MainContent.Children.Count > 0 && MainContent.Children[0] is UCMagAnalizaStanow)
-            //{
-            //    e.CanExecute = false;
-            //    return;
-            //}
+            ClearMainContent();
+            MainContent.Children.Add(new UCHome());
+        }
 
-            e.CanExecute = true;
+        private void Command_Execute_Home(object sender, ExecutedRoutedEventArgs e)
+        {
+            SetHomeUC();
         }
 
         private void Command_Execute_MagAnalizaStanow(object sender, ExecutedRoutedEventArgs e)
         {
-            if (MainContent.Children.Count > 0)
-            {
-                MainContent.Children.Clear();
-            }
-
+            ClearMainContent();
             MainContent.Children.Add(new UCMagAnalizaStanow());
         }
 
-        private void CreateNewEmail(object sender, RoutedEventArgs e)
+        private void Command_Execute_Orders(object sender, ExecutedRoutedEventArgs e)
+        {
+            ClearMainContent();
+            MainContent.Children.Add(new UCOrders());
+        }
+
+        private void Command_Execute_SendEmail(object sender, ExecutedRoutedEventArgs e)
+        {
+            ClearMainContent();
+            MainContent.Children.Add(new UCCreateEmail());
+        }
+
+        private void ClearMainContent()
         {
             if (MainContent.Children.Count > 0)
             {
                 MainContent.Children.Clear();
             }
-
-            MainContent.Children.Add(new UCCreateEmail());
         }
+
+        
     }
 }

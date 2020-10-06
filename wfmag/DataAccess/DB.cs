@@ -16,5 +16,13 @@ namespace DataAccess
                 return db.ANALIZA_ILOSCIOWA_ARTYKULOW_ZAM_V.ToList();
             }
         }
+
+        public List<WIDOK_ZAMOWIENIE> GetOrders()
+        {
+            using (var db = new WAPRO_DEMO_Entities())
+            {
+                return db.WIDOK_ZAMOWIENIE.ToList();
+            }
+        }
     }
 }

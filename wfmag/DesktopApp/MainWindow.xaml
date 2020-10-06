@@ -9,7 +9,10 @@
         mc:Ignorable="d"
         Title="Wapro Demo" Height="450" Width="800">
     <Window.CommandBindings>
-        <CommandBinding Command="Helpers:Commands.MagAnalizaStanow" CanExecute="Command_CanExecute_MagAnalizaStanow" Executed="Command_Execute_MagAnalizaStanow"/>
+        <CommandBinding Command="Helpers:Commands.Home" Executed="Command_Execute_Home"/>
+        <CommandBinding Command="Helpers:Commands.MagAnalizaStanow" Executed="Command_Execute_MagAnalizaStanow"/>
+        <CommandBinding Command="Helpers:Commands.Orders" Executed="Command_Execute_Orders"/>
+        <CommandBinding Command="Helpers:Commands.SendEmail" Executed="Command_Execute_SendEmail"/>
     </Window.CommandBindings>
 
     <Grid VirtualizingPanel.IsVirtualizing="True">
@@ -19,14 +22,17 @@
         </Grid.RowDefinitions>
         
         <Menu Grid.Row="0">
+            <MenuItem Header="Program">
+                <MenuItem Header="Menu główne" Command="Helpers:Commands.Home"/>
+            </MenuItem>
             <MenuItem Header="Magazyn">
                 <MenuItem Header="Analiza stanów" Command="Helpers:Commands.MagAnalizaStanow"/>
             </MenuItem>
             <MenuItem Header="Baza danych">
-                <MenuItem Header="Widoki"/>
+                <MenuItem Header="Zamówienia" Command="Helpers:Commands.Orders"/>
             </MenuItem>
             <MenuItem Header="Email">
-                <MenuItem Header="Utwórz nową wiadomość" Click="CreateNewEmail"/>
+                <MenuItem Header="Utwórz nową wiadomość" Command="Helpers:Commands.SendEmail"/>
             </MenuItem>
         </Menu>
 

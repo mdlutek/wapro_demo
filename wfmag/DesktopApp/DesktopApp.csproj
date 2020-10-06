@@ -70,11 +70,18 @@
     <Compile Include="UserControls\UCCreateEmail.xaml.cs">
       <DependentUpon>UCCreateEmail.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCHome.xaml.cs">
+      <DependentUpon>UCHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UCMagAnalizaStanow.xaml.cs">
       <DependentUpon>UCMagAnalizaStanow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UCOrders.xaml.cs">
+      <DependentUpon>UCOrders.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\VMCreateEmail.cs" />
     <Compile Include="ViewModels\VMMagAnalizaStanow.cs" />
+    <Compile Include="ViewModels\VMOrders.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -91,7 +98,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\UCHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\UCMagAnalizaStanow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\UCOrders.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
