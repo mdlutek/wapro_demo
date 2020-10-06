@@ -19,5 +19,13 @@ namespace DesktopApp.Helpers
                     new KeyGesture(Key.D1, ModifierKeys.Control)
                 }
             );
+
+
+        public static readonly RoutedUICommand SendEmail = new RoutedUICommand
+            (
+                "SendEmail",
+                "SendEmail",
+                typeof(Commands)
+            );
     }
 }

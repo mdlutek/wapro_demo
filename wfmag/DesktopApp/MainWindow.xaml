@@ -25,6 +25,9 @@
             <MenuItem Header="Baza danych">
                 <MenuItem Header="Widoki"/>
             </MenuItem>
+            <MenuItem Header="Email">
+                <MenuItem Header="Utwórz nową wiadomość" Click="CreateNewEmail"/>
+            </MenuItem>
         </Menu>
 
         <DockPanel Grid.Row="1" Name="MainContent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>

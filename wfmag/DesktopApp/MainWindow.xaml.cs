@@ -50,5 +50,15 @@ namespace DesktopApp
 
             MainContent.Children.Add(new UCMagAnalizaStanow());
         }
+
+        private void CreateNewEmail(object sender, RoutedEventArgs e)
+        {
+            if (MainContent.Children.Count > 0)
+            {
+                MainContent.Children.Clear();
+            }
+
+            MainContent.Children.Add(new UCCreateEmail());
+        }
     }
 }

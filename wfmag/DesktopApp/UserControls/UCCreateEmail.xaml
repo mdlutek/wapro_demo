@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="DesktopApp.UserControls.UCCreateEmail"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DesktopApp.UserControls"
+             xmlns:ViewModels="clr-namespace:DesktopApp.ViewModels"
+             xmlns:Helpers="clr-namespace:DesktopApp.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.DataContext>
+        <ViewModels:VMCreateEmail x:Name="VMCreateEmail"/>
+    </UserControl.DataContext>
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Helpers:Commands.SendEmail" CanExecute="Command_CanExecute_SendEmail" Executed="Command_Execute_SendEmail"/>
+    </UserControl.CommandBindings>
+    
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Content="Odbiorca:" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Recipient}"/>
+        
+        <Label Grid.Row="1" Grid.Column="0" Content="Temat:" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Subject}"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Zawartość:" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <RichTextBox Grid.Row="2" Grid.Column="1" Margin="5">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text="{Binding Body, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </Paragraph>
+            </FlowDocument>
+        </RichTextBox>
+
+        <Button Grid.Row="3" Grid.Column="1" Content="Wyślij" Margin="5" Command="Helpers:Commands.SendEmail"/>
+        
+    </Grid>
+</UserControl>
